@@ -23,10 +23,10 @@ struct ContentView: View {
                     .fontWeight(.bold)
                     .multilineTextAlignment(.center)
 
-                Image("lawn_care_logo") // Replace with your logo file
+                Image("myLogo") // Replace with your logo file
                     .resizable()
                     .scaledToFit()
-                    .frame(height: 150)
+                    .frame(height: 350)
 
                 Text("We provide professional lawn care services with a touch of perfection. Contact us today!")
                     .font(.body)
@@ -51,8 +51,6 @@ struct ContentView: View {
                         .cornerRadius(10)
                 }
             }
-            .padding()
-            .navigationTitle("Césped G")
         }
     }
 }
@@ -65,11 +63,11 @@ struct ServicesView: View {
                     .font(.largeTitle)
                     .fontWeight(.bold)
 
-                ServiceRow(title: "Lawn Mowing", description: "Precise and efficient mowing for a perfect lawn.")
-                ServiceRow(title: "Landscaping", description: "Creative designs to enhance your outdoor space.")
-                ServiceRow(title: "Weed Control", description: "Effective solutions to keep your lawn weed-free.")
-                ServiceRow(title: "Fertilization", description: "Quality fertilizers to nourish your grass.")
-                ServiceRow(title: "Seasonal Cleanups", description: "Complete cleanup to maintain lawn health.")
+                ServiceRow(title: "Lawn Mowing", description: "Precise and efficient mowing for a perfect lawn.", url: "https://calendly.com/cespedgtx/15min")
+                ServiceRow(title: "Landscaping", description: "Creative designs to enhance your outdoor space.", url: "https://calendly.com/yourname/landscaping")
+                ServiceRow(title: "Weed Control", description: "Effective solutions to keep your lawn weed-free.", url: "https://calendly.com/yourname/weed-control")
+                ServiceRow(title: "Fertilization", description: "Quality fertilizers to nourish your grass.", url: "https://calendly.com/yourname/fertilization")
+                ServiceRow(title: "Seasonal Cleanups", description: "Complete cleanup to maintain lawn health.", url: "https://calendly.com/yourname/seasonal-cleanups")
             }
             .padding()
         }
@@ -80,6 +78,7 @@ struct ServicesView: View {
 struct ServiceRow: View {
     let title: String
     let description: String
+    let url: String
 
     var body: some View {
         VStack(alignment: .leading, spacing: 5) {
@@ -90,6 +89,19 @@ struct ServiceRow: View {
             Text(description)
                 .font(.subheadline)
                 .foregroundColor(.secondary)
+
+            Button(action: {
+                if let bookingURL = URL(string: url) {
+                    UIApplication.shared.open(bookingURL)
+                }
+            }) {
+                Text("Book Now")
+                    .font(.headline)
+                    .foregroundColor(.white)
+                    .padding()
+                    .background(Color.blue)
+                    .cornerRadius(10)
+            }
         }
         .padding()
         .background(Color.white)
@@ -120,6 +132,23 @@ struct ContactView: View {
                     .background(Color.green)
                     .cornerRadius(10)
             }
+                Button(action: {
+                    if let bookingURL = URL(string: "https://calendly.com/cespedgtx/15min") {
+                        UIApplication.shared.open(bookingURL)
+                }
+            }) {
+                Text("Book Now")
+                    .font(.headline)
+                    .foregroundColor(.white)
+                    .padding()
+                    .background(Color.blue)
+                    .cornerRadius(10)
+            }
+            
+                Image("man_mowing") // Replace with your logo file
+                    .resizable()
+                    .scaledToFit()
+                    .frame(height: 350)
 
             Spacer()
         }
