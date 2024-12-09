@@ -67,7 +67,8 @@ struct ServicesView: View {
                 ServiceRow(title: "Landscaping", description: "Creative designs to enhance your outdoor space.", url: "https://calendly.com/yourname/landscaping")
                 ServiceRow(title: "Weed Control", description: "Effective solutions to keep your lawn weed-free.", url: "https://calendly.com/yourname/weed-control")
                 ServiceRow(title: "Fertilization", description: "Quality fertilizers to nourish your grass.", url: "https://calendly.com/yourname/fertilization")
-                ServiceRow(title: "Seasonal Cleanups", description: "Complete cleanup to maintain lawn health.", url: "https://calendly.com/yourname/seasonal-cleanups")
+                ServiceRow(title: "Seasonal Cleanups", description: "Complete cleanup utilizing all services to maintain lawn health.", url: "https://calendly.com/yourname/seasonal-cleanups")
+                ServiceRow(title: "Multiple Services", description: "Utilizes multiple services but not all to maintain lawn health.", url: "https://calendly.com/yourname/seasonal-cleanups")
             }
             .padding()
         }
@@ -137,11 +138,11 @@ struct ContactView: View {
                         UIApplication.shared.open(bookingURL)
                 }
             }) {
-                Text("Book Now")
+                Text("Free Consultation")
                     .font(.headline)
                     .foregroundColor(.white)
                     .padding()
-                    .background(Color.blue)
+                    .background(Color.red)
                     .cornerRadius(10)
             }
             
